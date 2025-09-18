@@ -4,10 +4,272 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
+        <title>Kathak by Nishtha Joshi</title>
+        <link rel="stylesheet" href="css/main.scss" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+        <header class="site-header">
+        <nav class="navbar">
+          <a class="logo" href="#hero">Kathakaar</a>
+        <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#repertoire">Repertoire</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <span class="nav-indicator" aria-hidden="true"></span>
+      </ul>
+    </nav>
+  </header>
+
+    <section id="hero" class="hero hero-video">
+      <video class="hero-bg"
+         autoplay
+         muted
+         loop
+         playsinline
+         preload="metadata">
+    <source src="assets/hero.mp4" type="video/mp4" />
+    <!-- Fallback text -->
+    Your browser does not support the HTML5 video tag.
+  </video>
+  
+  <div class="hero-inner">
+    <h1>Rhythm • Grace • Storytelling</h1>
+    <p>Kathak performances & workshops worldwide</p>
+  </div>
+  </section>
+
+    <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+        From the age of five, dancing has been the heartbeat of Nishtha Joshi’s life. She started learning Bharatnatyam
+        at the age of five for 3 consecutive years. Later her family moved to Delhi and there she started her Kathak Journey. 
+        Trained in the Lucknow gharana, she has completed her Master’s in Kathak and over two decades of 
+        immersive practice. Guided by her Guru Shri Dwaipayan Das and enriched through workshops with luminaries 
+        like Pandit Birju Maharaj, Vidushi Saswati Sen, and Vidushi Malti Shyam, Nishtha carries forward a lineage 
+        steeped in tradition and artistry.
+    </p>
+    <p>
+        Her performances weave together refined nazakat, delicate abhinaya, and intricate footwork, 
+        breathing life into both timeless compositions and contemporary choreographies. 
+    </p>
+    <p>
+        Dedicated to preserving the purity of the Lucknow style while embracing evolving expressions, 
+        Nishtha brings Kathak to diverse audiences through solo, duet, and group presentations. 
+        Beyond the stage, she conducts workshops, lecture-demonstrations, and mentorship programs, 
+        nurturing the next generation of dancers while sharing Kathak’s history, technique, and aesthetics.
+    </p>
+    <p>
+        For Nishtha, Kathak is not just performance—it is storytelling, rhythm, and devotion, 
+        an artistic journey that bridges heritage and contemporary sensibility.
+    </p>
+  </section>
+  <section class="about-photos">
+  <div class="about-photos-row">
+    <figure>
+      <img src="assets/a1.JPG">
+    </figure>
+    <figure>
+      <img src="assets/a2.JPG">
+    </figure>
+    <figure>
+      <img src="assets/a3.JPG">
+    </figure>
+    <figure>
+      <img src="assets/a4.JPG">
+    </figure>
+  </div>
+</section>
+
+
+    <section id="repertoire" class="section">
+    <h2>Repertoire</h2>
+    <p>
+        She has graced prestigious cultural and government platforms, from G20 events, the Red Fort, Doordarshan 
+        and Rajpath to international festivals and curated showcases across continents. 
+        Collaborations with renowned artists such as Maitreyee Pahari, Rekha Mehra, and Vidushi Saswati Sen 
+        further highlight her versatility and stage presence. She has also had the honor of performing before 
+        eminent dignitaries including President Droupadi Murmu, Prime Minister Narendra Modi, Home Minister Amit Shah,
+        Chief Minister Yogi Adityanath and Defence Minister Rajnath Singh, bringing the elegance of Kathak to India’s highest platforms.
+  </p>
+    <p>
+        My performances blend traditional Lucknow gharana compositions with innovative presentations that 
+        highlight rhythm, grace, and expressive storytelling. These collaborations and stage experiences have 
+        enriched my artistry, allowing me to bring diverse flavors of Kathak to audiences worldwide.
+  </p>
+  <p>
+    <strong>Below are the images of some of my group performances worldwide:</strong>
+  </p>
+<div class="carousel">
+  <button class="prev" aria-label="Previous">❮</button>
+
+  <!-- viewport -->
+    <div class="carousel-track">
+    <!-- translating inner row -->
+      <div class="carousel-track-inner" id="track">
+        <div class="slide"><img src="assets/r1.jpg"  alt="Performance 1"></div>
+        <div class="slide"><img src="assets/r2.jpg"  alt="Performance 1"></div>
+        <div class="slide"><img src="assets/r3.JPG"  alt="Performance 2"></div>
+        <div class="slide"><img src="assets/r4.JPG"  alt="Performance 3"></div>
+        <div class="slide"><img src="assets/r5.jpg"  alt="Performance 4"></div>
+        <div class="slide"><img src="assets/r6.jpg"  alt="Performance 5"></div>
+        <div class="slide"><img src="assets/r7.JPG"  alt="Performance 6"></div>
+        <div class="slide"><img src="assets/r8.JPG"  alt="Performance 7"></div>
+      </div>
+    </div>
+
+  <button class="next" aria-label="Next">❯</button>
+</div>
+  </section>
+
+    <section id="workshops" class="section">
+    <h2>Workshops</h2>
+
+    <div class="workpictures">
+      <figure>
+        <img src="assets/w1.JPG" alt="Workshop 1" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/w2.JPG" alt="Workshop 2" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="columns">
+    <div class="card workshop-open"
+         data-title="Beginner Workshop"
+         data-text="An introduction to the essence of Kathak: tala (rhythm), tatkar (basic footwork), simple chakkars (spins), and graceful hastas (hand gestures). Focus on posture, counting, and moving with the theka. Ideal for absolute beginners or those rediscovering dance.">
+      <h3>Beginner</h3>
+      <p>Tap to read details…</p>
+    </div>
+
+    <div class="card workshop-open"
+         data-title="Intermediate Workshop"
+         data-text="Build on the foundation with compositions, tihai patterns, and expressive abhinaya. Learn short choreographies and guided improvisation while developing stamina, clarity, and stage presence. Grow your understanding of lay and theka.">
+      <h3>Intermediate</h3>
+      <p>Tap to read details…</p>
+    </div>
+
+    <div class="card workshop-open"
+         data-title="Advanced Workshop"
+         data-text="For seasoned practitioners: intricate layakari, advanced gat-nikas and gat-bhav, nuanced abhinaya, nazakat (delicacy) and tayyari (speed/precision). Emphasis on choreography building, improvisation skills, and performance polish for solo or group presentations.">
+      <h3>Advanced</h3>
+      <p>Tap to read details…</p>
+    </div>
+    </div>
+  </section>
+
+  <div id="wsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="wsTitle">
+  <div class="modal-content ws-modal-content">
+    <button class="close ws-close" aria-label="Close">&times;</button>
+    <h3 id="wsTitle"></h3>
+    <p id="wsText"></p>
+  </div>
+</div>
+
+    <section id="media" class="media">
+    <h2>Media</h2>
+    <p>Reminiscing Kathak moments</p>
+
+    <div class="gallery-grid">
+      <button class="scroll-btn left" aria-label="Scroll left">❮</button>
+
+      <div class="media-grid" id="mediaGrid">
+        <!-- replace with your own items in assets/ -->
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo3.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo5.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo2.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo4.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo6.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo7.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo8.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo9.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+        <figure class="item">
+          <video controls preload="metadata">
+            <source src="assets/dancevideo11.mp4" type="video/mp4" />
+          </video>
+        </figure>
+
+      </div>
+
+      <button class="scroll-btn right" aria-label="Scroll right">❯</button>
+    </div>  
+    </section>
+
+    <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:nishtha1596@gmail.com">nishtha1596@gmail.com</a></p>
+     <div class="social-icons">
+    <a href="https://www.instagram.com/nishthajoshi10/" target="_blank" rel="noopener" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/@nishtha15joshi" target="_blank" rel="noopener" aria-label="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100093264926082" target="_blank" rel="noopener" aria-label="Facebook">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+  </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Nishtha Joshi</p>
+  </footer>
+
+    <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Book a Performance</h3>
+      <p>
+        Email <a href="mailto:nishtha1596@gmail.com">nishtha1596@gmail.com</a>
+        with event details.
+      </p>
+    </div>
+  </div>
+
+    <script src="js/main.js" defer></script>
     </body>
 </html>

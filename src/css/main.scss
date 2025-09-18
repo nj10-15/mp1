@@ -1,1 +1,403 @@
 /* Your SCSS here. */
+:root { --header-h: 72px; }   
+html { scroll-behavior: smooth; scrollbar-gutter: stable both-edges; }
+
+body {
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  scroll-behavior: smooth; /* smooth scrolling */
+  background-color: rgb(238, 184, 137);
+}
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background:rgb(238, 184, 137);
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  transition: background .25s ease;        /* optional */
+}
+/* Navbar */
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 16px;
+  max-width: 1100px;                       /* optional center cap */
+  margin: 0 auto;
+  transition: padding .25s ease;            /* animate height change */
+}
+.logo{                                      /* your "Kathakaar" text */
+  font-size: 26px; font-weight: 800; color: #111; text-decoration: none;
+  transition: font-size .25s ease;
+}
+.nav-links {
+  position: relative;
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: black;
+  font-size: x-large;
+  font-weight: 600;
+  font-size: 20px;                          /* larger at top */
+  padding: 8px 10px;
+  border-radius: 6px;                      /* for active highlight */
+  transition: background .2s ease, color .2s ease;
+  transition: font-size .25s ease, padding .25s ease, background .2s ease;
+}
+.nav-links a:hover {
+  color: whitesmoke;
+}
+.nav-links a.active{
+  background: rgba(0,0,0,.18);
+  color: #000;
+  border-radius: 6px;
+}
+.nav-indicator {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: #a33;               /* pick your color */
+  border-radius: 2px;
+  transition: left .25s ease, width .25s ease;
+  pointer-events: none;
+}
+
+/* Shrunk state after scrolling */
+.site-header.scrolled .navbar{ padding: 8px 16px; }      /* smaller bar */
+.site-header.scrolled .logo{ font-size: 20px; }          /* smaller logo */
+.site-header.scrolled .nav-links a{
+  font-size: 16px;                                       /* smaller text */
+  padding: 6px 8px;
+}
+
+/*About Photos*/
+.about-photos-row {
+  max-width: 1100px;              /* centers and caps width */
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 1–4 columns as space allows */
+  gap: 16px;                      /* space between pictures */
+}
+.about-photos-row figure {
+  margin: 0;
+  aspect-ratio: 4 / 6;            /* consistent card shape */
+  border: solid #eee;
+}
+.about-photos-row img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               /* crops neatly */
+  display: block;
+}
+/* HERO: video background */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  color: #fff;
+  overflow: hidden;          /* hide excess video edges */
+}
+
+.hero-video .hero-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);  /* center the video */
+  object-fit: cover;        /* fill while keeping aspect */
+  z-index: -2;              /* behind content */
+}
+
+/* dark overlay so text reads well on all frames */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: -1;
+}
+
+.hero-inner { position: relative; text-align: center; }
+
+/* Sections */
+.section {
+  padding: 50px;
+  text-align: center;
+  scroll-margin-top: 72px;
+  scroll-margin-top: var(--header-h);
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+.carousel-track {
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  width: clamp(320px, 90vw, 900px);   /* fluid between 320 and 900 */
+}
+.carousel-track-inner {
+  display: flex;
+  transition: transform .35s ease;
+}
+.slide {
+  flex: 0 0 100%;
+}
+.slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  line-height: 36px;
+  border: none;
+}
+.prev { left: 6px; }
+.next { right: 6px; }
+
+/* Workshops CSS */
+.workpictures{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 18px;   /* space around the row */
+  flex-wrap: wrap;       /* stack on small screens */
+}
+.workpictures figure {
+  margin: 0;
+  width: clamp(260px, 48%, 560px);   /* two-up on desktop, stack on 1024 */
+  aspect-ratio: 4 / 3;       /* keeps a neat shape */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  background: #fff;
+}
+.workpictures img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crops nicely inside the card */
+}
+.columns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  flex:1 1 280px; 
+  max-width: 360px;
+  background: #843853;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Gallery fixed background */
+.media {
+  background: url("../assets/bg.png") center/cover fixed;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 32px 0 28px; /* a bit more padding for the strip */
+  min-height: 60vh;     /* keep height target */
+  text-align: center;
+}
+
+.media-strip {
+  position: relative;
+  padding: 12px 0 8px;
+  border-top: 0;
+}
+.media-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;          /* horizontal scroll */
+  padding: 12px 56px;        /* space for buttons */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery-grid {
+  position: relative;
+  background: transparent;
+  padding: 14px 0 8px;
+}
+
+.media-grid {
+  /* card sizing variables */
+  --card-w: 320px;      /* width of each video card */
+  --card-h: 200px;      /* height of each video card */
+  --gap: 50px;          /* space between cards */
+
+  display: grid;
+  grid-auto-flow: column;                      /* fill by columns */
+  grid-template-rows: repeat(2, var(--card-h));/* 2 rows tall */
+  grid-auto-columns: var(--card-w);            /* one item per column */
+  gap: var(--gap);
+
+  overflow-x: auto;
+  padding: 12px 64px;                          /* room for buttons */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.item {
+  width: var(--card-w);
+  height: var(--card-h);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+}
+.item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.item figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  text-align: left;
+}
+
+/* Left/Right buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.scroll-btn.left  { left: 8px;  }
+.scroll-btn.right { right: 8px; }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+/* Text-only workshops modal */
+.ws-modal-content {
+  position: relative;
+  margin: 12vh auto;
+  max-width: 560px;
+  padding: 22px 22px 18px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+/* Close button top-right */
+.ws-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#wsTitle { margin: 0 26px 10px 0; }
+#wsText  { margin: 0; line-height: 1.5; }
+
+
+/* Make cards look clickable */
+.card.workshop-open {
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .15s ease;
+}
+.card.workshop-open:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: white;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.social-icons a {
+  font-size: 28px;           /* scalable vector size */
+  color: #111;               /* set your color */
+  text-decoration: none;
+  transition: transform .15s ease, color .15s ease;
+}
+
+.social-icons a:hover {
+  color: #a33;               /* hover color */
+  transform: translateY(-2px);
+}
+
+
+/* responsiveness */
+@media (max-width: 720px) {
+  .item { width: 240px; }
+  .item video, .item img { height: 160px; }
+}
+
+/* small screens: make each photo full width */
+@media (max-width: 720px) {
+  .workshop-photos figure {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 760px) {
+  .media-grid {
+    --card-w: 240px;
+    --card-h: 160px;
+    --gap: 12px;
+  }
+}
