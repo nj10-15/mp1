@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kathak by Nishtha Joshi</title>
-        <link rel="stylesheet" href="css/main.scss" />
+        <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
     </head>
     <body>
@@ -15,16 +15,15 @@
         <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#repertoire">Repertoire</a></li>
+        <li><a href="#repertory">Repertory</a></li>
         <li><a href="#workshops">Workshops</a></li>
         <li><a href="#media">Media</a></li>
         <li><a href="#contact">Contact</a></li>
-
-        <span class="nav-indicator" aria-hidden="true"></span>
       </ul>
     </nav>
   </header>
 
+<!-- Home/Hero Section -->
     <section id="hero" class="hero hero-video">
       <video class="hero-bg"
          autoplay
@@ -33,10 +32,8 @@
          playsinline
          preload="metadata">
     <source src="assets/hero.mp4" type="video/mp4" />
-    <!-- fallback text -->
     Your browser does not support the HTML5 video tag.
   </video>
-  
   <div class="hero-inner">
     <h1>KATHAK</h1>
     <h2>Rhythm • Grace • Storytelling</h2>
@@ -44,6 +41,7 @@
   </div>
   </section>
 
+  <!-- About Section -->
     <section id="about" class="section">
     <h2>About</h2>
     <p>
@@ -69,6 +67,7 @@
         an artistic journey that bridges heritage and contemporary sensibility.
     </p>
   </section>
+  <!-- About Photos -->
   <section class="about-photos">
   <div class="about-photos-row">
     <figure>
@@ -86,11 +85,11 @@
   </div>
 </section>
 
-
-    <section id="repertoire" class="section">
-    <h2>Repertoire</h2>
+<!-- Repertory Section -->
+    <section id="repertory" class="section">
+    <h2>Repertory</h2>
     <p>
-        She has graced prestigious cultural and government platforms, from G20 events, the Red Fort, Doordarshan 
+        She has graced prestigious cultural and government platforms, from G20 Summits, the Red Fort, Doordarshan 
         and Rajpath to international festivals and curated showcases across continents. 
         Collaborations with renowned artists such as Maitreyee Pahari, Rekha Mehra, and Vidushi Saswati Sen 
         further highlight her versatility and stage presence. She has also had the honor of performing before 
@@ -108,9 +107,7 @@
 <div class="carousel">
   <button class="prev" aria-label="Previous">❮</button>
 
-  <!-- viewport -->
     <div class="carousel-track">
-    <!-- translating inner row -->
       <div class="carousel-track-inner" id="track">
         <div class="slide"><img src="assets/r1.jpg"  alt="Performance 1"></div>
         <div class="slide"><img src="assets/r2.jpg"  alt="Performance 1"></div>
@@ -127,6 +124,7 @@
 </div>
   </section>
 
+<!-- Workshop Section -->
     <section id="workshops" class="section">
     <h2>Workshops</h2>
 
@@ -142,27 +140,34 @@
     <div class="columns">
     <div class="card workshop-open"
          data-title="Beginner Workshop"
-         data-text="An introduction to the essence of Kathak: tala (rhythm), tatkar (basic footwork), simple chakkars (spins), and graceful hastas (hand gestures). Focus on posture, counting, and moving with the theka. Ideal for absolute beginners or those rediscovering dance.">
+         data-text="An introduction to the essence of Kathak: tala (rhythm), tatkar (basic footwork), simple chakkars (spins) 
+         and graceful hastas (hand gestures). Focus on posture, counting, and moving with the theka. 
+         Ideal for absolute beginners or those rediscovering dance.<br><br>Days: Every Monday, Wednesday and Friday.<br>Time: 3pm - 4pm<br>Fees: $50/hour">
       <h3>Beginner</h3>
       <p>Tap to read details…</p>
     </div>
 
     <div class="card workshop-open"
          data-title="Intermediate Workshop"
-         data-text="Build on the foundation with compositions, tihai patterns, and expressive abhinaya. Learn short choreographies and guided improvisation while developing stamina, clarity, and stage presence. Grow your understanding of lay and theka.">
+         data-text="Build on the foundation with compositions, tihai patterns, and expressive abhinaya. 
+         Learn short choreographies and guided improvisation while developing stamina, clarity, and stage presence. 
+         Grow your understanding of lay and theka.<br><br>Days: Every Monday, Wednesday and Friday.<br>Time: 4pm - 5pm<br>Fees: $75/hour">
       <h3>Intermediate</h3>
       <p>Tap to read details…</p>
     </div>
 
     <div class="card workshop-open"
          data-title="Advanced Workshop"
-         data-text="For seasoned practitioners: intricate layakari, advanced gat-nikas and gat-bhav, nuanced abhinaya, nazakat (delicacy) and tayyari (speed/precision). Emphasis on choreography building, improvisation skills, and performance polish for solo or group presentations.">
+         data-text="For seasoned practitioners: intricate layakari, advanced gat-nikas and gat-bhav, nuanced abhinaya, 
+         nazakat (delicacy) and tayyari (speed/precision). Emphasis on choreography building, improvisation skills and 
+         performance polish for solo or group presentations.<br><br>Days: Every Monday, Wednesday and Friday.<br>Time: 5pm - 6:30pm<br>Fees: $100/hour">
       <h3>Advanced</h3>
       <p>Tap to read details…</p>
     </div>
     </div>
   </section>
 
+  <!-- Workshops modal -->
   <div id="wsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="wsTitle">
   <div class="modal-content ws-modal-content">
     <button class="close ws-close" aria-label="Close">&times;</button>
@@ -171,6 +176,7 @@
   </div>
 </div>
 
+ <!-- Media Section -->
     <section id="media" class="media">
     <h2>Media</h2>
     <p>Reminiscing Kathak moments</p>
@@ -199,6 +205,7 @@
     </div>
     </section>
 
+<!-- Contact Section -->
     <section id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:nishtha1596@gmail.com">nishtha1596@gmail.com</a></p>
@@ -218,17 +225,6 @@
   <footer>
     <p>© <span id="year"></span> Nishtha Joshi</p>
   </footer>
-
-    <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Book a Performance</h3>
-      <p>
-        Email <a href="mailto:nishtha1596@gmail.com">nishtha1596@gmail.com</a>
-        with event details.
-      </p>
-    </div>
-  </div>
 
     <script src="js/main.js" defer></script>
     </body>
