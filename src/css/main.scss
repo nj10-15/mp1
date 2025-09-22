@@ -217,95 +217,47 @@ body {
 .media {
   background: url("../assets/bg.png") center/cover fixed;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
   padding: 32px 0 28px; /* a bit more padding for the strip */
-  min-height: 60vh;     /* keep height target */
   text-align: center;
 }
-
-.media-strip {
-  position: relative;
-  padding: 12px 0 8px;
-  border-top: 0;
-}
-.media-scroll {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;          /* horizontal scroll */
-  padding: 12px 56px;        /* space for buttons */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery-grid {
-  position: relative;
-  background: transparent;
-  padding: 14px 0 8px;
-}
-
 .media-grid {
-  /* card sizing variables */
-  --card-w: 320px;      /* width of each video card */
-  --card-h: 200px;      /* height of each video card */
-  --gap: 50px;          /* space between cards */
-
   display: grid;
-  grid-auto-flow: column;                      /* fill by columns */
-  grid-template-rows: repeat(2, var(--card-h));/* 2 rows tall */
-  grid-auto-columns: var(--card-w);            /* one item per column */
-  gap: var(--gap);
-
-  overflow-x: auto;
-  padding: 12px 64px;                          /* room for buttons */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 16px auto 0;
+  padding: 0 16px; /* comfy edges on small screens */
 }
-
-.item {
-  width: var(--card-w);
-  height: var(--card-h);
-  border: 1px solid rgba(255,255,255,0.25);
+.media-grid figure {
+  margin: 0;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 10px;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(2px);
   overflow: hidden;
-  position: relative;
-  scroll-snap-align: start;
-}
-.item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.item figcaption {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: 6px 10px;
-  font-size: 14px;
   color: #fff;
-  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  display: flex;
+  flex-direction: column;
+}
+.media-grid video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+}
+.media-grid figcaption {
+  padding: 10px 12px;
+  font-size: 14px;
+  opacity: .95;
   text-align: left;
 }
-
-/* Left/Right buttons */
-.scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255,255,255,0.35);
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  cursor: pointer;
-  border-radius: 6px;
+@media (max-width: 900px) {
+  .media-grid { grid-template-columns: repeat(2, minmax(200px, 1fr)); }
 }
-.scroll-btn.left  { left: 8px;  }
-.scroll-btn.right { right: 8px; }
+
+@media (max-width: 600px) {
+  .media-grid { grid-template-columns: 1fr; }
+}
 
 /* Modal */
 .modal {
@@ -379,25 +331,10 @@ footer {
   transform: translateY(-2px);
 }
 
-
-/* responsiveness */
-@media (max-width: 720px) {
-  .item { width: 240px; }
-  .item video, .item img { height: 160px; }
-}
-
 /* small screens: make each photo full width */
 @media (max-width: 720px) {
   .workshop-photos figure {
     width: 100%;
     max-width: 520px;
-  }
-}
-
-@media (max-width: 760px) {
-  .media-grid {
-    --card-w: 240px;
-    --card-h: 160px;
-    --gap: 12px;
   }
 }

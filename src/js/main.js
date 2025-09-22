@@ -1,15 +1,6 @@
 // year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/*// navbar progress indicator
-const indicator = document.querySelector('.indicator');
-window.addEventListener('scroll', () => {
-  const doc = document.documentElement;
-  const max = doc.scrollHeight - doc.clientHeight;
-  const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
-  indicator.style.width = pct + '%';
-});*/
-
 // simple carousel
 // ----- Reliable carousel -----
 const trackEl = document.getElementById('track');
@@ -52,7 +43,7 @@ window.addEventListener('click', (e) => {
   if (e.target === modal) modal.style.display = 'none';
 });
 
-// NEW: horizontal gallery scroll buttons
+/*// NEW: horizontal gallery scroll buttons
 const scroller = document.getElementById('mediaScroll');
 const leftBtn  = document.querySelector('.gallery-strip .left');
 const rightBtn = document.querySelector('.gallery-strip .right');
@@ -64,7 +55,7 @@ function scrollByCard(dir = 1) {
   scroller.scrollBy({ left: dir * step, behavior: 'smooth' });
 }
 leftBtn?.addEventListener('click', () => scrollByCard(-1));
-rightBtn?.addEventListener('click', () => scrollByCard(1));
+rightBtn?.addEventListener('click', () => scrollByCard(1));*/
 
 
 
