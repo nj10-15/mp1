@@ -59,6 +59,10 @@ body {
   background: rgba(0,0,0,.18); 
   color: #000;
 }
+@media (max-width: 1024px) {
+  .nav-links { gap: 18px; }
+  .site-header.scrolled .nav-links a { font-size: 15px; }
+}
 
 // Shrink on scroll
 .site-header.scrolled .navbar { 
@@ -261,7 +265,7 @@ body {
 }
 .media-grid video { 
   width: 100%; 
-  height: 400px; aspect-ratio: 16/9; display: block; object-fit: cover; 
+  height: 450px; aspect-ratio: 16/9; display: block; object-fit: cover; 
 }
 .media-grid figcaption { 
   padding: 10px 12px; font-size: 14px; opacity: .95; text-align: left; 
