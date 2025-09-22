@@ -22,106 +22,73 @@ window.addEventListener('resize', () => goTo(idx));
 window.addEventListener('load', () => goTo(0));
 goTo(0);
 
-/* ---------- Scrollspy: section under navbar line + true bottom ---------- */
+// Scrollspy
 (function () {
-  const header = document.querySelector('.site-header');
-  const nav    = document.querySelector('.nav-links');
-  const links  = nav ? Array.from(nav.querySelectorAll('a[href^="#"]')) : [];
-  const secs   = Array.from(document.querySelectorAll('#hero, section[id]'));
-  if (!header || !nav || !links.length || !secs.length) return;
+  const headerEl = document.querySelector('.site-header');
+  const navEl    = document.querySelector('.nav-links');
+  const linkEls  = navEl ? Array.from(navEl.querySelectorAll('a[href^="#"]')) : [];
+  const sectionEls = Array.from(document.querySelectorAll('#hero, section[id]'));
+  if (!headerEl || !navEl || !linkEls.length || !sectionEls.length) return;
 
-  const idToLink = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-  let segments = []; // [{id, top, bottom}]
+  const idToLink = new Map(linkEls.map(a => [a.getAttribute('href').slice(1), a]));
+  let segments = []; // [{ id, top, bottom }]
 
   function setActive(id) {
-    links.forEach(a => a.classList.toggle('active', a === idToLink.get(id)));
+    linkEls.forEach(a => a.classList.toggle('active', a === idToLink.get(id)));
   }
 
-  // Compute section document-space ranges [top, bottom)
   function recalc() {
-    const tops = secs.map(s => Math.round(s.getBoundingClientRect().top + window.scrollY));
     const docH = Math.ceil(document.documentElement.scrollHeight);
-    segments = secs.map((s, i) => ({
+    const tops = sectionEls.map(s => Math.round(s.getBoundingClientRect().top + window.scrollY));
+    segments = sectionEls.map((s, i) => ({
       id: s.id,
       top: tops[i],
-      bottom: i < secs.length - 1 ? tops[i + 1] : docH
+      bottom: i < sectionEls.length - 1 ? tops[i + 1] : docH
     }));
-    update(); // sync once after recalculation
+    update();
   }
 
   function currentId() {
-    const lineY = Math.round(window.scrollY + header.offsetHeight + 1); // line under navbar
+    const lineY = Math.round(window.scrollY + headerEl.offsetHeight + 1);
     const doc   = document.documentElement;
+    const EPS   = 4;
 
-    // True bottom of page → last section
+    // true bottom → last section
     if (Math.ceil(window.innerHeight + window.scrollY) >= Math.ceil(doc.scrollHeight) - 1) {
       return segments[segments.length - 1].id;
     }
 
-    // Section whose range contains the line
+    // section whose range contains the line (with tolerance)
     for (const seg of segments) {
-      if (lineY >= seg.top && lineY < seg.bottom) return seg.id;
+      if (lineY >= seg.top - EPS && lineY < seg.bottom - EPS) return seg.id;
     }
-    return segments[0].id; // fallback
+
+    // in a gap → last section whose top is above the line
+    let last = segments[0].id;
+    for (const seg of segments) {
+      if (lineY >= seg.top - EPS) last = seg.id;
+    }
+    return last;
   }
 
   function update() { setActive(currentId()); }
 
-  // Immediate feedback on click, then let scroll take over
-  links.forEach(a => {
+  // immediate visual feedback on click, then let scroll take over
+  linkEls.forEach(a => {
     a.addEventListener('click', () => {
       setActive(a.getAttribute('href').slice(1));
-      setTimeout(update, 50);
+      requestAnimationFrame(update);
     });
   });
 
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', recalc);
   window.addEventListener('load', recalc);
-  document.addEventListener('DOMContentLoaded', recalc);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(recalc);
 
-  // in case media loads late, recalc again
-  setTimeout(recalc, 300);
-  setTimeout(recalc, 1500);
+  // late content (images/video) safety recalc
+  setTimeout(recalc, 600);
 })();
-
-
-
-/* Scrollspy
-(function () {
-  const header   = document.querySelector('.site-header');
-  const linksUL  = document.querySelector('.nav-links');
-  const links    = linksUL ? Array.from(linksUL.querySelectorAll('a')) : [];
-  const sections = Array.from(document.querySelectorAll('section[id], #hero'));
-  if (!header || !linksUL || !links.length || !sections.length) return;
-
-  function setActiveById(id){
-    links.forEach(a =>
-      a.classList.toggle('active', a.getAttribute('href') === `#${id}`)
-    );
-  }
-
-  function updateOnScroll(){
-    const headerBottom = header.getBoundingClientRect().bottom;
-    const atBottom = Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight;
-    if (atBottom) { setActiveById(sections[sections.length-1].id); return; }
-    const current = sections.find(sec => {
-      const r = sec.getBoundingClientRect();
-      return r.top <= headerBottom && r.bottom > headerBottom;
-    });
-    if (current) setActiveById(current.id);
-  }
-
-  links.forEach(a =>
-    a.addEventListener('click', () => setActiveById(a.getAttribute('href').slice(1)))
-  );
-  window.addEventListener('scroll', updateOnScroll, { passive: true });
-  window.addEventListener('resize', updateOnScroll);
-  window.addEventListener('load', updateOnScroll);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateOnScroll);
-  updateOnScroll();
-})();*/
 
 // Navbar shrink + anchor offset
 (function(){
